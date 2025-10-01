@@ -1,0 +1,13 @@
+package edu.ucne.registrojugadorkmp.domain.repository
+
+import edu.ucne.registrojugadorkmp.domain.model.Jugador
+import kotlinx.coroutines.flow.Flow
+
+interface JugadorRepository {
+    suspend fun save(jugador: Jugador)
+    fun observeJugador(): Flow<List<Jugador>>
+    suspend fun getJugador(id: Int): Jugador?
+    suspend fun upsertJugador(jugador: Jugador): Int
+    suspend fun deleteJugador(id: Int)
+    suspend fun getJugadorByName(name: String): Jugador?
+}
